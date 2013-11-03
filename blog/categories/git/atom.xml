@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Just Pydog]]></title>
-  <link href="http://pydog.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Git | Just Pydog]]></title>
+  <link href="http://pydog.github.io/blog/categories/git/atom.xml" rel="self"/>
   <link href="http://pydog.github.io/"/>
   <updated>2013-11-03T16:58:38+08:00</updated>
   <id>http://pydog.github.io/</id>
