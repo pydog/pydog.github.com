@@ -2,18 +2,22 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://pydog.github.io/blog/2013/11/03/something-about-git/</loc>
-        <lastmod>2013-11-03T16:57:52+08:00</lastmod>
+        <lastmod>2013-11-03T20:32:51+08:00</lastmod>
     </url>
     <url>
         <loc>http://pydog.github.io/robots.txt</loc>
-        <lastmod>2013-11-03T16:44:37+08:00</lastmod>
+        <lastmod>2013-11-03T20:32:51+08:00</lastmod>
     </url>
     <url>
         <loc>http://pydog.github.io/blog/archives/</loc>
-        <lastmod>2013-11-03T16:57:52+08:00</lastmod>
+        <lastmod>2013-11-03T20:32:51+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://pydog.github.io/blog/</loc>
+        <lastmod>2013-11-03T20:32:51+08:00</lastmod>
     </url>
     <url>
         <loc>http://pydog.github.io/</loc>
-        <lastmod>2013-11-03T16:57:52+08:00</lastmod>
+        <lastmod>2013-11-03T20:32:51+08:00</lastmod>
     </url>
 </urlset>
