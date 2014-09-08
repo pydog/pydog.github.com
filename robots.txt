@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://pydog.github.io/sitemap.xml 
+Sitemap: pydog.github.com/sitemap.xml 
