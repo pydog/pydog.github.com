@@ -4,7 +4,7 @@
   <title><![CDATA[Just Pydog]]></title>
   <link href="pydog.github.io/atom.xml" rel="self"/>
   <link href="pydog.github.io/"/>
-  <updated>2014-09-09T20:25:44+08:00</updated>
+  <updated>2014-09-09T23:05:39+08:00</updated>
   <id>pydog.github.io/</id>
   <author>
     <name><![CDATA[Pydog]]></name>
@@ -12,6 +12,66 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[github多账户密钥配置]]></title>
+    <link href="pydog.github.io/blog/2014/09/09/githubduo-zhang-hu-mi-yao-pei-zhi/"/>
+    <updated>2014-09-09T21:54:00+08:00</updated>
+    <id>pydog.github.io/blog/2014/09/09/githubduo-zhang-hu-mi-yao-pei-zhi</id>
+    <content type="html"><![CDATA[<ol>
+<li>使用下面的命令生成密钥
+<code>ssh-keygen -t -rsa -C 'second@mail.com'</code>
+默认SSH只会读取id_rsa，所以为了让SSH识别新的私钥，需要将其添加到SSH agent
+<code>ssh-add ～/.ssh/id_rsa_second</code></li>
+</ol>
+
+
+<!--more-->
+
+
+<ol>
+<li>完成以上步骤后在~/.ssh目录创建config文件，该文件用于配置私钥对应的服务器。内容如下：</li>
+</ol>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># Default github user(first@mail.com)
+</span><span class='line'>    Host github.com
+</span><span class='line'>    HostName github.com
+</span><span class='line'>    User git
+</span><span class='line'>    IdentityFile $HOME/.ssh/id_rsa
+</span><span class='line'>
+</span><span class='line'>#second user(second@mail.com)
+</span><span class='line'>    Host github-second
+</span><span class='line'>    HostName github.com
+</span><span class='line'>    User git
+</span><span class='line'>    IdentityFile $HOME/.ssh/id_rsa_second</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li>配置完成后，在连接非默认帐号的github仓库时，远程库的地址要对应地做一些修改， 比如现在添加second帐号下的一个仓库test，则需要这样添加：  <br/>
+<code>
+ git remote add test git@github-second:second/test.git
+ #并非原来的git@github.com:second/test.git
+</code></li>
+</ol>
+
+
+<p>注意： github根据配置文件的user.email来获取github帐号显示author信息， 所以对于多帐号用户一定要记得将user.email改为相应的email(<a href="&#109;&#x61;&#105;&#x6c;&#116;&#111;&#x3a;&#x73;&#101;&#x63;&#111;&#x6e;&#x64;&#x40;&#x6d;&#97;&#x69;&#108;&#46;&#99;&#111;&#x6d;">&#115;&#x65;&#99;&#x6f;&#x6e;&#x64;&#64;&#109;&#x61;&#105;&#x6c;&#46;&#x63;&#x6f;&#109;</a>)。</p>
+
+<p><strong>本文参考自</strong>: <a href="http://justjavac.com/git/2012/04/13/multiple-ssh-keys.html">多个github帐号的SSH key切换</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Something about Git]]></title>

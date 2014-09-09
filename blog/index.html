@@ -11,7 +11,10 @@
     <title>Just Pydog</title>
     <meta name="author" content="Pydog">
     
-    <meta name="description" content="Something about Git Nov 3rd, 2013 Git 每次推送到github服务器要输入用户名密码的解决办法是修改.git/config 文件中的url为ssh的方式： 利用octopress和github page搭建个人博客 Mar 26th, 2013 &hellip;">
+    <meta name="description" content="github多账户密钥配置 Sep 9th, 2014 github 使用下面的命令生成密钥
+ssh-keygen -t -rsa -C 'second@mail.com'
+默认SSH只会读取id_rsa，所以为了让SSH识别新的私钥，需要将其添加到SSH agent
+ssh-add ～/. &hellip;">
     
     <meta name="viewport" content="width=device-width">
     
@@ -57,6 +60,69 @@
 
           
 
+
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
+    <a href="/blog/2014/09/09/githubduo-zhang-hu-mi-yao-pei-zhi/">github多账户密钥配置</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    
+
+
+
+
+
+
+
+
+  
+
+
+<time class="pull-left" datetime="2014-09-09T21:54:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> Sep 9<span>th</span>, 2014</time>
+    
+
+
+
+  
+  <div class="pull-left">
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      <li><a href="/blog/categories/github/">github</a></li>
+    
+    </ul>
+  </div>
+  
+
+    
+  </div>
+  
+</header>
+
+
+
+
+<div class="entry-content clearfix">
+  <ol>
+<li>使用下面的命令生成密钥
+<code>ssh-keygen -t -rsa -C 'second@mail.com'</code>
+默认SSH只会读取id_rsa，所以为了让SSH识别新的私钥，需要将其添加到SSH agent
+<code>ssh-add ～/.ssh/id_rsa_second</code></li>
+</ol>
+
+
+
+  <a class="btn pull-right" href="/blog/2014/09/09/githubduo-zhang-hu-mi-yao-pei-zhi/">Read on &rarr;</a>
+</div>
+
+  </article>
+  <hr>
 
   
   <article class="listing">
@@ -211,6 +277,10 @@ rvm rubygems latest
   <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Recent Posts</h1>
   <ul class="divided">
+    
+      <li class="post">
+        <a href="/blog/2014/09/09/githubduo-zhang-hu-mi-yao-pei-zhi/">github多账户密钥配置</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/11/03/something-about-git/">Something about Git</a>
