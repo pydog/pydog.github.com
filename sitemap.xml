@@ -1,27 +1,27 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>pydog.github.com/blog/2013/03/26/how-to-post-in-octopress/</loc>
+        <loc>pydog.github.io/blog/2013/03/26/how-to-post-in-octopress/</loc>
         <lastmod>2014-09-08T23:34:33+08:00</lastmod>
     </url>
     <url>
-        <loc>pydog.github.com/blog/2013/11/03/something-about-git/</loc>
+        <loc>pydog.github.io/blog/2013/11/03/something-about-git/</loc>
         <lastmod>2014-09-08T23:34:33+08:00</lastmod>
     </url>
     <url>
-        <loc>pydog.github.com/</loc>
+        <loc>pydog.github.io/</loc>
         <lastmod>2014-09-08T23:34:33+08:00</lastmod>
     </url>
     <url>
-        <loc>pydog.github.com/robots.txt</loc>
+        <loc>pydog.github.io/robots.txt</loc>
         <lastmod>2014-09-08T23:34:33+08:00</lastmod>
     </url>
     <url>
-        <loc>pydog.github.com/blog/</loc>
+        <loc>pydog.github.io/blog/</loc>
         <lastmod>2014-09-08T23:34:33+08:00</lastmod>
     </url>
     <url>
-        <loc>pydog.github.com/blog/archives/</loc>
+        <loc>pydog.github.io/blog/archives/</loc>
         <lastmod>2014-09-08T23:34:33+08:00</lastmod>
     </url>
 </urlset>

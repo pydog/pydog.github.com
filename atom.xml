@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Just Pydog]]></title>
-  <link href="pydog.github.com/atom.xml" rel="self"/>
-  <link href="pydog.github.com/"/>
-  <updated>2014-09-08T23:40:19+08:00</updated>
-  <id>pydog.github.com/</id>
+  <link href="pydog.github.io/atom.xml" rel="self"/>
+  <link href="pydog.github.io/"/>
+  <updated>2014-09-09T20:25:44+08:00</updated>
+  <id>pydog.github.io/</id>
   <author>
     <name><![CDATA[Pydog]]></name>
     
@@ -15,18 +15,18 @@
   
   <entry>
     <title type="html"><![CDATA[Something about Git]]></title>
-    <link href="pydog.github.com/blog/2013/11/03/something-about-git/"/>
+    <link href="pydog.github.io/blog/2013/11/03/something-about-git/"/>
     <updated>2013-11-03T16:54:00+08:00</updated>
-    <id>pydog.github.com/blog/2013/11/03/something-about-git</id>
+    <id>pydog.github.io/blog/2013/11/03/something-about-git</id>
     <content type="html"><![CDATA[<p>  每次推送到github服务器要输入用户名密码的解决办法是修改.git/config 文件中的url为ssh的方式：</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[利用octopress和github page搭建个人博客]]></title>
-    <link href="pydog.github.com/blog/2013/03/26/how-to-post-in-octopress/"/>
+    <link href="pydog.github.io/blog/2013/03/26/how-to-post-in-octopress/"/>
     <updated>2013-03-26T10:38:00+08:00</updated>
-    <id>pydog.github.com/blog/2013/03/26/how-to-post-in-octopress</id>
+    <id>pydog.github.io/blog/2013/03/26/how-to-post-in-octopress</id>
     <content type="html"><![CDATA[<h3>基础建设</h3>
 
 <blockquote><p>安装RVM和Ruby</p></blockquote>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Git | Just Pydog]]></title>
-  <link href="pydog.github.com/blog/categories/git/atom.xml" rel="self"/>
-  <link href="pydog.github.com/"/>
-  <updated>2014-09-08T23:40:19+08:00</updated>
-  <id>pydog.github.com/</id>
+  <link href="pydog.github.io/blog/categories/git/atom.xml" rel="self"/>
+  <link href="pydog.github.io/"/>
+  <updated>2014-09-09T20:25:44+08:00</updated>
+  <id>pydog.github.io/</id>
   <author>
     <name><![CDATA[Pydog]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Something about Git]]></title>
-    <link href="pydog.github.com/blog/2013/11/03/something-about-git/"/>
+    <link href="pydog.github.io/blog/2013/11/03/something-about-git/"/>
     <updated>2013-11-03T16:54:00+08:00</updated>
-    <id>pydog.github.com/blog/2013/11/03/something-about-git</id>
+    <id>pydog.github.io/blog/2013/11/03/something-about-git</id>
     <content type="html"><![CDATA[<p>  每次推送到github服务器要输入用户名密码的解决办法是修改.git/config 文件中的url为ssh的方式：</p>
 ]]></content>
   </entry>
