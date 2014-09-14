@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Just Pydog]]></title>
+  <link href="http://pydog.github.io/atom.xml" rel="self"/>
+  <link href="http://pydog.github.io/"/>
+  <updated>2014-09-14T23:44:41+08:00</updated>
+  <id>http://pydog.github.io/</id>
+  <author>
+    <name><![CDATA[Pydog]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[github多账户密钥配置]]></title>
+    <link href="http://pydog.github.io/blog/2014/09/09/githubduo-zhang-hu-mi-yao-pei-zhi/"/>
+    <updated>2014-09-09T21:54:00+08:00</updated>
+    <id>http://pydog.github.io/blog/2014/09/09/githubduo-zhang-hu-mi-yao-pei-zhi</id>
+    <content type="html"><![CDATA[<ul>
+<li>使用下面的命令生成密钥
+<code>ssh-keygen -t -rsa -C 'second@mail.com'</code>
+默认SSH只会读取id_rsa，所以为了让SSH识别新的私钥，需要将其添加到SSH agent
+<code>ssh-add ～/.ssh/id_rsa_second</code></li>
+</ul>
+
+
+<!--more-->
+
+
+<ul>
+<li>完成以上步骤后在~/.ssh目录创建config文件，该文件用于配置私钥对应的服务器。内容如下：</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># Default github user(first@mail.com)
+</span><span class='line'>    Host github.com
+</span><span class='line'>    HostName github.com
+</span><span class='line'>    User git
+</span><span class='line'>    IdentityFile $HOME/.ssh/id_rsa
+</span><span class='line'>
+</span><span class='line'>#second user(second@mail.com)
+</span><span class='line'>    Host github-second
+</span><span class='line'>    HostName github.com
+</span><span class='line'>    User git
+</span><span class='line'>    IdentityFile $HOME/.ssh/id_rsa_second</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><p>配置完成后，在连接非默认帐号的github仓库时，远程库的地址要对应地做一些修改， 比如现在添加second帐号下的一个仓库test，则需要这样添加：  <br/>
+<code>
+  git remote add test git@github-second:second/test.git
+  #并非原来的git@github.com:second/test.git
+</code></p></li>
+<li><p>注意： github根据配置文件的user.email来获取github帐号显示author信息， 所以对于多帐号用户一定要记得将user.email改为相应的email(<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#x3a;&#115;&#101;&#99;&#x6f;&#110;&#100;&#64;&#x6d;&#97;&#x69;&#x6c;&#46;&#x63;&#111;&#x6d;">&#115;&#x65;&#x63;&#x6f;&#x6e;&#x64;&#64;&#x6d;&#97;&#105;&#x6c;&#46;&#99;&#111;&#109;</a>)。</p></li>
+</ul>
+
+
+<p><strong>本文参考自</strong>: <a href="http://justjavac.com/git/2012/04/13/multiple-ssh-keys.html">多个github帐号的SSH key切换</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Something about Git]]></title>
+    <link href="http://pydog.github.io/blog/2013/11/03/something-about-git/"/>
+    <updated>2013-11-03T16:54:00+08:00</updated>
+    <id>http://pydog.github.io/blog/2013/11/03/something-about-git</id>
+    <content type="html"><![CDATA[<p>  每次推送到github服务器要输入用户名密码的解决办法是修改.git/config 文件中的url为ssh的方式：</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[利用octopress和github page搭建个人博客]]></title>
+    <link href="http://pydog.github.io/blog/2013/03/26/how-to-post-in-octopress/"/>
+    <updated>2013-03-26T10:38:00+08:00</updated>
+    <id>http://pydog.github.io/blog/2013/03/26/how-to-post-in-octopress</id>
+    <content type="html"><![CDATA[<h3>基础建设</h3>
+
+<blockquote><p>安装RVM和Ruby</p></blockquote>
+
+<pre><code>安装RVM
+curl -L https://get.rvm.io | bash -s stable --ruby
+
+安装Ruby
+rvm install 1.9.3
+rvm use 1.9.3
+rvm rubygems latest
+</code></pre>
+
+<p>运行<code>ruby --version</code>确定输出是1.9.3</p>
+
+<!--more-->
+
+
+<blockquote><p>配置octopress</p></blockquote>
+
+<pre><code>$ git clone git://github.com/imathis/octopress.git octopress
+$ cd octopress
+$ bundle install
+$ rake install
+</code></pre>
+
+<h3>部署到github page上</h3>
+
+<hr />
+
+<pre><code>$ rake setup_github_pages
+
+$ rake generate
+
+$ rake deploy
+
+$ git add .
+
+$ git commit -m ‘your message’
+
+$ git push origin source
+</code></pre>
+
+<h3>自定义域名</h3>
+
+<pre><code>echo ‘your-domain.com’ &gt;&gt; source/CNAME
+</code></pre>
+
+<h3>写博文</h3>
+
+<p><strong> 下面摘自geekontheway的博客 </strong></p>
+
+<p>如果你是和别人合作博客，或者自己同时在好几个电脑上写博客，每次开始之前要做以下步骤</p>
+
+<p><em>新电脑的话要先克隆:</em>
+克隆博客源代码：
+<code>git clone -b source git@github.com:username/username.github.com.git octopress
+</code>
+克隆_deploy:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd octopress
+</span><span class='line'>git clone git@github.com:username/username.github.com.git _deploy </span></code></pre></td></tr></table></div></figure>
+
+
+<p><em>部署博客：</em>
+<code>gem install bundler</code>
+<code>bundle install</code>
+<code>rake setup_github_pages</code></p>
+
+<p><em>和远程同步：</em></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd octopress
+</span><span class='line'>git pull origin source
+</span><span class='line'>cd ./_deploy
+</span><span class='line'>git pull origin master</span></code></pre></td></tr></table></div></figure>
+
+
+<p><em>发表博文：</em></p>
+
+<p>运行<code>rake new_post["you_post_tittle"]</code>并编辑source/_post/下对应的markdown文件</p>
+
+<p><em>推送到远程服务器：</em></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git add .
+</span><span class='line'>git commit -am "sth update"
+</span><span class='line'>git push origin source
+</span><span class='line'>cd _deploy
+</span><span class='line'>git push origin master</span></code></pre></td></tr></table></div></figure>
+
+
+<p><em>部署：</em></p>
+
+<p>运行<code>rake gen_deploy</code>部署到github page</p>
+
+<p><em>更新octopress</em></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git remote add octopress git://github.com/imathis/octopress.git
+</span><span class='line'>git pull octopress master     # Get the latest Octopress
+</span><span class='line'>bundle install                # Keep gems updated
+</span><span class='line'>rake update_source            # update the template's source
+</span><span class='line'>rake update_style             # update the template's style</span></code></pre></td></tr></table></div></figure>
+
+
+<p>参考博文：</p>
+
+<p><a href="http://chensy0203.github.io/posts/hello-octopress.html">chensy&rsquo;s blog</a></p>
+]]></content>
+  </entry>
+  
+</feed>

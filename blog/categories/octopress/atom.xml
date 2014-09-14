@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: octopress | Just Pydog]]></title>
+  <link href="http://pydog.github.io/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://pydog.github.io/"/>
+  <updated>2014-09-14T23:44:41+08:00</updated>
+  <id>http://pydog.github.io/</id>
+  <author>
+    <name><![CDATA[Pydog]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[利用octopress和github page搭建个人博客]]></title>
+    <link href="http://pydog.github.io/blog/2013/03/26/how-to-post-in-octopress/"/>
+    <updated>2013-03-26T10:38:00+08:00</updated>
+    <id>http://pydog.github.io/blog/2013/03/26/how-to-post-in-octopress</id>
+    <content type="html"><![CDATA[<h3>基础建设</h3>
+
+<blockquote><p>安装RVM和Ruby</p></blockquote>
+
+<pre><code>安装RVM
+curl -L https://get.rvm.io | bash -s stable --ruby
+
+安装Ruby
+rvm install 1.9.3
+rvm use 1.9.3
+rvm rubygems latest
+</code></pre>
+
+<p>运行<code>ruby --version</code>确定输出是1.9.3</p>
+
+<!--more-->
+
+
+<blockquote><p>配置octopress</p></blockquote>
+
+<pre><code>$ git clone git://github.com/imathis/octopress.git octopress
+$ cd octopress
+$ bundle install
+$ rake install
+</code></pre>
+
+<h3>部署到github page上</h3>
+
+<hr />
+
+<pre><code>$ rake setup_github_pages
+
+$ rake generate
+
+$ rake deploy
+
+$ git add .
+
+$ git commit -m ‘your message’
+
+$ git push origin source
+</code></pre>
+
+<h3>自定义域名</h3>
+
+<pre><code>echo ‘your-domain.com’ &gt;&gt; source/CNAME
+</code></pre>
+
+<h3>写博文</h3>
+
+<p><strong> 下面摘自geekontheway的博客 </strong></p>
+
+<p>如果你是和别人合作博客，或者自己同时在好几个电脑上写博客，每次开始之前要做以下步骤</p>
+
+<p><em>新电脑的话要先克隆:</em>
+克隆博客源代码：
+<code>git clone -b source git@github.com:username/username.github.com.git octopress
+</code>
+克隆_deploy:</p>
+
+<pre><code>cd octopress
+git clone git@github.com:username/username.github.com.git _deploy 
+</code></pre>
+
+<p><em>部署博客：</em>
+<code>gem install bundler</code>
+<code>bundle install</code>
+<code>rake setup_github_pages</code></p>
+
+<p><em>和远程同步：</em>
+<code>
+cd octopress
+git pull origin source
+cd ./_deploy
+git pull origin master
+</code></p>
+
+<p><em>发表博文：</em></p>
+
+<p>运行<code>rake new_post["you_post_tittle"]</code>并编辑source/_post/下对应的markdown文件</p>
+
+<p><em>推送到远程服务器：</em></p>
+
+<pre><code>git add .
+git commit -am "sth update"
+git push origin source
+cd _deploy
+git push origin master
+</code></pre>
+
+<p><em>部署：</em></p>
+
+<p>运行<code>rake gen_deploy</code>部署到github page</p>
+
+<p><em>更新octopress</em>
+<code>
+git remote add octopress git://github.com/imathis/octopress.git
+git pull octopress master     # Get the latest Octopress
+bundle install                # Keep gems updated
+rake update_source            # update the template's source
+rake update_style             # update the template's style
+</code>
+参考博文：</p>
+
+<p><a href="http://chensy0203.github.io/posts/hello-octopress.html">chensy&rsquo;s blog</a></p>
+]]></content>
+  </entry>
+  
+</feed>
