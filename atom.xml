@@ -4,7 +4,7 @@
   <title><![CDATA[Just Pydog]]></title>
   <link href="http://pydog.github.io/atom.xml" rel="self"/>
   <link href="http://pydog.github.io/"/>
-  <updated>2014-09-14T23:44:41+08:00</updated>
+  <updated>2014-09-19T23:25:08+08:00</updated>
   <id>http://pydog.github.io/</id>
   <author>
     <name><![CDATA[Pydog]]></name>
@@ -64,7 +64,7 @@
   git remote add test git@github-second:second/test.git
   #并非原来的git@github.com:second/test.git
 </code></p></li>
-<li><p>注意： github根据配置文件的user.email来获取github帐号显示author信息， 所以对于多帐号用户一定要记得将user.email改为相应的email(<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#x3a;&#115;&#101;&#99;&#x6f;&#110;&#100;&#64;&#x6d;&#97;&#x69;&#x6c;&#46;&#x63;&#111;&#x6d;">&#115;&#x65;&#x63;&#x6f;&#x6e;&#x64;&#64;&#x6d;&#97;&#105;&#x6c;&#46;&#99;&#111;&#109;</a>)。</p></li>
+<li><p>注意： github根据配置文件的user.email来获取github帐号显示author信息， 所以对于多帐号用户一定要记得将user.email改为相应的email(<a href="&#x6d;&#97;&#x69;&#108;&#116;&#111;&#x3a;&#115;&#101;&#99;&#x6f;&#110;&#x64;&#64;&#x6d;&#97;&#x69;&#x6c;&#46;&#99;&#x6f;&#109;">&#115;&#x65;&#99;&#x6f;&#110;&#100;&#x40;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#111;&#x6d;</a>)。</p></li>
 </ul>
 
 
@@ -77,7 +77,22 @@
     <link href="http://pydog.github.io/blog/2013/11/03/something-about-git/"/>
     <updated>2013-11-03T16:54:00+08:00</updated>
     <id>http://pydog.github.io/blog/2013/11/03/something-about-git</id>
-    <content type="html"><![CDATA[<p>  每次推送到github服务器要输入用户名密码的解决办法是修改.git/config 文件中的url为ssh的方式：</p>
+    <content type="html"><![CDATA[<ul>
+<li>每次推送到github服务器要输入用户名密码的解决办法是修改.git/config 文件中的url为ssh的方式：</li>
+<li>git submodule</li>
+</ul>
+
+
+<!--more-->
+
+
+<pre><code>+ 添加submodule: 在git仓库的根目录执行`git submodule add git@url ./dir_of_submodule`
++ 更新submodule：在git仓库的根目录执行`git submodule update`
++ 克隆带子模块的项目:
+    + 克隆`git clone git@url dir_to_project`，(克隆下来的项目是空的)
+    + 执行初始化子模块：`git submodule init`
+    + 更新子模块：`git submodule update`
+</code></pre>
 ]]></content>
   </entry>
   
